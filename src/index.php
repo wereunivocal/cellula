@@ -108,15 +108,15 @@
                     }
                     ?>
                     <h2><?php printf(_n('A comment on &ldquo; %2$s&rdquo;', '%1$s comments on &ldquo; %2$s&rdquo;', get_comments_number(), 'cg'), number_format_i18n(get_comments_number()), '<em>' . get_the_title() . '</em>') ?></h2>
-                    <?php $cmms = get_comments(array('post_id' => get_the_id()));
+                    <?php $c = get_comments(array('post_id' => get_the_id()));
                     wp_list_comments(
                         [
                         'avatar_size' => 120,
                         'style' => 'div',
-                        'callback' => function ($comment, $args, $depth) {
+                        'callback' => function ($c, $a, $d) {
                         ?>
                             <aside <?php comment_class() ?>id="comment-<?php comment_ID() ?>">
-                            <?php if ($comment->comment_approved == '0') { ?>
+                            <?php if ($c->comment_approved == '0') { ?>
                                 <p>
                                     <em><?php esc_html_e('Your comment is awaiting moderation.', 'cg') ?></em>
                                 </p>
@@ -127,11 +127,11 @@
                                 </h3>
                                 <p><?php comment_text() ?></p>
                                 <a href="#">
-                                    <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+                                    <?php comment_reply_link(array_merge($a, array('depth' => $d, 'max_depth' => $a['max_depth']))) ?>
                                 </a>
                             </aside>
                             <?php
-                        }], $cmms);
+                        }], $c);
                     the_comments_navigation();
                     comment_form() ?>
                     </footer>
