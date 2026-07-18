@@ -1,9 +1,10 @@
+<?php $b = "bloginfo" ?>
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
     <link rel="profile" href="https://gmpg.org/xfn/11"/>
     <meta http-equiv="Content-Type"
-          content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>"/>
+          content="<?php $b('html_type') ?>; charset=<?php $b('charset') ?>"/>
     <title><?= wp_get_document_title() ?></title>
     <style media="screen">
         body > footer,
@@ -38,7 +39,7 @@
 
         section {
             display: grid;
-            grid-row-gap: 2em;
+            grid-row-gap: 1em;
             grid-area: s;
             align-items: start
         }
@@ -71,20 +72,20 @@
             height: auto
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5, h6 {
             line-height: 1.2;
             margin: 1.5rem 0 0;
             padding: 0
         }
     </style>
-    <link rel="pingback" href="<?php bloginfo('pingback_url') ?>"/>
+    <link rel="pingback" href="<?php $b('pingback_url') ?>"/>
     <?php if (is_singular()) wp_enqueue_script('comment-reply');
     wp_head() ?>
 </head>
 <body <?php body_class() ?>>
 <header>
-    <h1><a href="<?= home_url() ?>/"><?php bloginfo('name') ?></a></h1>
-    <div class="description"><?php bloginfo('description') ?></div>
+    <h1><a href="<?= home_url() ?>/"><?php $b('name') ?></a></h1>
+    <div class="description"><?php $b('description') ?></div>
 </header>
 <main id="page">
     <?php if (have_posts()) { ?>
