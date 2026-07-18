@@ -30,8 +30,7 @@
         @media (min-width: 768px) {
             main {
                 display: grid;
-                gap: 20px;
-                grid-template-columns:3fr 1fr;
+                grid-template-columns: 3fr 1fr;
                 grid-template-areas:"s a";
                 align-items: start
             }
@@ -39,7 +38,7 @@
 
         section {
             display: grid;
-            grid-row-gap: 1em;
+            row-gap: 1em;
             grid-area: s;
             align-items: start
         }
@@ -74,8 +73,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             line-height: 1.2;
-            margin: 1.5rem 0 0;
-            padding: 0
+            margin: 1.5rem 0 0
         }
     </style>
     <link rel="pingback" href="<?php $b('pingback_url') ?>"/>
