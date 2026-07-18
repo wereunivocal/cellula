@@ -92,13 +92,16 @@ function minify_html_fragment(string $html): string
 
 
 // Minifies a CSS string: strips comments and whitespace that CSS
-// never treats as significant (around { } ; : ,), including the
-// whitespace runs that used to be newlines.
+// never treats as significant (around { } ; : , and the child
+// combinator >), including the whitespace runs that used to be
+// newlines. The +/~ sibling combinators are deliberately left alone
+// since those characters double as calc()'s operators, where the
+// surrounding whitespace is required.
 function minify_css(string $css): string
 {
     $css = preg_replace('!/\*.*?\*/!s', '', $css);
     $css = preg_replace('/\s+/', ' ', $css);
-    $css = preg_replace('/\s*([{};:,])\s*/', '$1', $css);
+    $css = preg_replace('/\s*([{};:,>])\s*/', '$1', $css);
     $css = str_replace(';}', '}', $css);
 
     return trim($css);
