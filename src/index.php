@@ -81,7 +81,7 @@
 </head>
 <body <?php body_class() ?>>
 <header>
-    <h1><a href="<?= home_url() ?>/"><?php $b('name') ?></a></h1>
+    <h1><a href="<?= home_url() ?>"><?php $b('name') ?></a></h1>
     <div class="description"><?php $b('description') ?></div>
 </header>
 <main id="page">
