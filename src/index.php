@@ -96,7 +96,7 @@
                 the_posts_navigation() ?>
                 <address class="author"><?php _e('By: ', 'cg');
                     the_author_link() ?></address>
-                <?php _e('Published on: ', 'cg') ?>
+                <?= __('Published on: ', 'cg') ?>
                 <time><?php the_date() ?></time>
                 <?php if (comments_open() || get_comments_number()) {
                     ?>
@@ -136,8 +136,8 @@
                 <?php
                 }
             } else {
-                the_excerpt();
-                echo '<a href="' . esc_url(get_permalink()) . '">' . __('Read more', 'cg') . '</a>';
+                the_excerpt(); ?>
+                <a href="<?php the_permalink() ?>"><?= __('Read more', 'cg') ?></a><?php
             }
             ?></article><?php
         }
