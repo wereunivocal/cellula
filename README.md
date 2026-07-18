@@ -5,7 +5,7 @@
 # Cellula
 *Cellula: \[italian noun\] /'tʃɛlːula/ (biology) a very small piece of the substance of which all living things are made; the smallest unit of living matter* 
 
-A Wordpress classic theme in less than 4kb single-line php. A proof of concept for the smallest, yet fully featured wordpress theme. More more informations, see the following [blog post]().
+A Wordpress classic theme in less than 4kb single-line php. A proof of concept for the smallest, yet fully featured wordpress theme. More more informations, see the following [blog post](https://univocal.co/cellula-wordpress-theme/).
 
 
 ## Features
