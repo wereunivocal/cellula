@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
-    <link rel="profile" href="https://gmpg.org/xfn/11"/>
     <meta http-equiv="Content-Type"
           content="<?php $b('html_type') ?>; charset=<?php $b('charset') ?>"/>
     <title><?= wp_get_document_title() ?></title>
