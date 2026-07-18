@@ -149,7 +149,7 @@
     wp_footer() ?>
 </main>
 <footer id="footer" role="contentinfo"><p><?php
-        printf(__('%1$s is proudly powered by %2$s'), get_bloginfo('name'), '<a href="https://wordpress.org/">WordPress</a>') ?></p>
+        printf(__('%1$s is proudly powered by %2$s'), get_bloginfo('name'), '<a href="https://wp.org">WordPress</a>') ?></p>
 </footer>
 </body>
 </html><?php
