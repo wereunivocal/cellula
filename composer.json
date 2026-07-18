@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "minify": "php scripts/minify.php --input=src/index.php --output=index.php"
+  }
+}
