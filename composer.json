@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "minify": "php scripts/minify.php --input=src/index.php --output=index.php"
+    "minify": "php scripts/minify.php --input=src/index.php --output=index.php",
+    "build": "@minify"
   }
 }
