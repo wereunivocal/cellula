@@ -104,7 +104,7 @@
                         return;
                     }
                     ?>
-                    <h2><?php printf(_n('A comment on &ldquo; %2$s&rdquo;', '%1$s comments on &ldquo; %2$s&rdquo;', get_comments_number(), 'cg'), number_format_i18n(get_comments_number()), '<em>' . get_the_title() . '</em>') ?></h2>
+                    <h2><?php printf(_n('A comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'cg'), number_format_i18n(get_comments_number()), '<em>' . get_the_title() . '</em>') ?></h2>
                     <?php $c = get_comments(array('post_id' => get_the_id()));
                     wp_list_comments(
                         [
@@ -119,7 +119,7 @@
                                 </p>
                             <?php } ?>
                                 <h3>
-                                    <time><?php __('on: ', 'cg') . printf(esc_html__('%1$s at %2$s', 'cg'), get_comment_date(), get_comment_time()) ?></time>
+                                    <time><?php __('on: ', 'cg') . printf(esc_html__('%1$s at %2$s ', 'cg'), get_comment_date(), get_comment_time()) ?></time>
                                     <span><?= get_comment_author() . __(' said:', 'cg') ?></span>
                                 </h3>
                                 <p><?php comment_text() ?></p>
