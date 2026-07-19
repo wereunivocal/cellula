@@ -22,15 +22,14 @@
         main {
             display: flex;
             flex-direction: column;
-            gap: 20px
+            gap: 20px;
+            align-items: start;
         }
 
         @media (min-width: 768px) {
             main {
                 display: grid;
-                grid-template-columns: 3fr 1fr;
-                grid-template-areas:"s a";
-                align-items: start
+                grid-template:"s a" auto / 3fr 1fr;
             }
         }
 
@@ -45,7 +44,8 @@
             grid-area: a
         }
 
-        #sidebar > ul {
+        #sidebar > ul,
+        #sidebar li {
             list-style-type: none
         }
 
