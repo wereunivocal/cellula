@@ -5,10 +5,9 @@
     <meta http-equiv="Content-Type"
           content="<?php $b('html_type') ?>; charset=<?php $b('charset') ?>"/>
     <title><?= wp_get_document_title() ?></title>
-    <style media="screen">
-        body > footer,
-        footer > aside {
-            margin-bottom: 2.75rem
+    <style>
+        #footer {
+            margin: 2.75em auto
         }
 
         body {
@@ -17,7 +16,7 @@
             max-width: 80vw;
             line-height: 1.6;
             color: #444;
-            padding: 0 .75rem
+            padding: 0 .75em
         }
 
         main {
@@ -62,7 +61,7 @@
 
         body > footer {
             text-align: center;
-            font-size: .75rem
+            font-size: .75em
         }
 
         img {
@@ -72,7 +71,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             line-height: 1.2;
-            margin: 1.5rem 0 0
+            margin: 1.5em 0 0
         }
     </style>
     <link rel="pingback" href="<?php $b('pingback_url') ?>"/>
