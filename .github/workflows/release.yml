@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag is on main
+        run: |
+          git fetch origin main --quiet
+          TAG_COMMIT="$(git rev-list -n 1 "${GITHUB_REF_NAME}")"
+          if ! git merge-base --is-ancestor "$TAG_COMMIT" origin/main; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not point to a commit on main; aborting release."
+            exit 1
+          fi
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          tools: composer
+
+      - name: Build & lint-check theme
+        run: composer run build
+
+      - name: Package release archive
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          mkdir -p "dist/cellula"
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='dist' \
+            --exclude='scripts' \
+            --exclude='src' \
+            --exclude='composer.json' \
+            --exclude='composer.lock' \
+            ./ "dist/cellula/"
+          (cd dist && zip -r "cellula-${TAG}.zip" cellula)
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/cellula-${{ github.ref_name }}.zip
+          generate_release_notes: true
